@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ene-2015 17:39:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="simpsonsdb.models.Lugar" table="lugar" catalog="simpsons" optimistic-lock="version">
+        <id name="idLugar" type="java.lang.Integer">
+            <column name="id_lugar" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreLugar" type="string">
+            <column name="nombre_lugar" length="100" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="1000" />
+        </property>
+        <set name="personajes" table="personajelugar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_lugar" not-null="true" />
+            </key>
+            <many-to-many entity-name="simpsonsdb.models.Personaje">
+                <column name="id_personaje" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

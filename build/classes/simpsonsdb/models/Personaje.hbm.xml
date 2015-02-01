@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-ene-2015 17:39:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="simpsonsdb.models.Personaje" table="personaje" catalog="simpsons" optimistic-lock="version">
+        <id name="idPersonaje" type="java.lang.Integer">
+            <column name="id_personaje" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="familia" class="simpsonsdb.models.Familia" fetch="select">
+            <column name="id_familia" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="100" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="1000" />
+        </property>
+        <set name="lugars" table="personajelugar" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personaje" not-null="true" />
+            </key>
+            <many-to-many entity-name="simpsonsdb.models.Lugar">
+                <column name="id_lugar" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="empleos" table="personajeempleo" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personaje" not-null="true" />
+            </key>
+            <many-to-many entity-name="simpsonsdb.models.Empleo">
+                <column name="id_empleo" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
