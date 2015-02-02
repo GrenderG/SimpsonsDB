@@ -25,6 +25,11 @@ public class Familia  implements java.io.Serializable {
        this.personajes = personajes;
     }
     
+    public Familia(String nombre, String descripcion) {
+       this.nombre = nombre;
+       this.descripcion = descripcion;
+    }
+    
     public Integer getIdFamilia() {
         return this.idFamilia;
     }

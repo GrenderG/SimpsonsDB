@@ -24,7 +24,12 @@ public class Empleo  implements java.io.Serializable {
        this.descripcion = descripcion;
        this.personajes = personajes;
     }
-   
+
+    public Empleo(String nombreEmpleo, String descripcion) {
+       this.nombreEmpleo = nombreEmpleo;
+       this.descripcion = descripcion;
+    }
+    
     public Integer getIdEmpleo() {
         return this.idEmpleo;
     }

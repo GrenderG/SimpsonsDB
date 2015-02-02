@@ -25,6 +25,11 @@ public class Lugar  implements java.io.Serializable {
        this.personajes = personajes;
     }
    
+    public Lugar(String nombreLugar, String descripcion) {
+       this.nombreLugar = nombreLugar;
+       this.descripcion = descripcion;
+    }
+    
     public Integer getIdLugar() {
         return this.idLugar;
     }

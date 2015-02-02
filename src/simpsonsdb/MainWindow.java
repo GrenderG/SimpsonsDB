@@ -12,7 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
-import javax.swing.text.JTextComponent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import simpsonsdb.models.Empleo;
@@ -33,7 +32,6 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    
     private static final ImageIcon icon = new ImageIcon(MainWindow.class.getResource("/res/icon.png"));
     private TablePersonajesModel personajesModel;
     private TableFamiliaModel familiaModel;
@@ -42,12 +40,12 @@ public class MainWindow extends javax.swing.JFrame {
     private JTable tablasResultados[] = new JTable[4];
     private SessionFactory sessionF = HibernateUtil.getSessionFactory();
     private Session session = sessionF.openSession();
-    
+
     public MainWindow() {
         initComponents();
         setConsultaComboBoxes();
         setInsertaComboBoxes();
-        
+
         tablasResultados[0] = this.jTable1;
         tablasResultados[1] = this.jTable2;
         tablasResultados[2] = this.jTable3;
@@ -55,21 +53,21 @@ public class MainWindow extends javax.swing.JFrame {
 
         personajesModel = new TablePersonajesModel();
         this.jTable1.setModel(personajesModel);
-        
+
         familiaModel = new TableFamiliaModel();
         this.jTable2.setModel(familiaModel);
-        
-        lugarModel = new TableLugarModel();                
+
+        lugarModel = new TableLugarModel();
         this.jTable3.setModel(lugarModel);
-        
+
         empleoModel = new TableEmpleoModel();
         this.jTable4.setModel(empleoModel);
-        
+
         setDoubleClickListeners();
-        
+
         this.setIconImage(icon.getImage());
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -136,13 +134,39 @@ public class MainWindow extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jPanel22 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SimpsonsDB");
         setBackground(new java.awt.Color(223, 223, 223));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(223, 223, 223));
 
@@ -509,7 +533,9 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel5.setText("Familia:");
 
         jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
+        jTextArea3.setWrapStyleWord(true);
         jScrollPane7.setViewportView(jTextArea3);
 
         jButton5.setText("Añadir");
@@ -592,41 +618,197 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Personaje", jPanel16);
 
+        jLabel6.setText("Nombre familia:");
+
+        jLabel7.setText("Descripción:");
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setWrapStyleWord(true);
+        jScrollPane8.setViewportView(jTextArea4);
+
+        jButton7.setText("Limpiar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Añadir");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7))
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton7))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Familia", jPanel19);
+
+        jLabel10.setText("Nombre lugar:");
+
+        jLabel11.setText("Descripción:");
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setLineWrap(true);
+        jTextArea6.setRows(5);
+        jTextArea6.setWrapStyleWord(true);
+        jScrollPane10.setViewportView(jTextArea6);
+
+        jButton11.setText("Limpiar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Añadir");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11))
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton12)
+                    .addComponent(jButton11))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Lugar", jPanel22);
+
+        jLabel8.setText("Nombre empleo:");
+
+        jLabel9.setText("Descripción:");
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(5);
+        jTextArea5.setWrapStyleWord(true);
+        jScrollPane9.setViewportView(jTextArea5);
+
+        jButton9.setText("Limpiar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Añadir");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9))
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton10)
+                    .addComponent(jButton9))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Empleo", jPanel25);
@@ -698,44 +880,119 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         personajeInsert();
     }//GEN-LAST:event_jButton5ActionPerformed
-    
-    public void setDoubleClickListeners(){
-        
-        for (int i = 0; i < tablasResultados.length; i++){
-            
-            tablasResultados[i].addMouseListener(new MouseListener(){
-                
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.jTextField8.setText("");
+        this.jTextArea4.setText("");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        familiaInsert();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        this.jTextField9.setText("");
+        this.jTextArea5.setText("");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        empleoInsert();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        this.jTextField10.setText("");
+        this.jTextArea6.setText("");
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        lugarInsert();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        session.close();
+    }//GEN-LAST:event_formWindowClosing
+
+    public void setDoubleClickListeners() {
+
+        for (int i = 0; i < tablasResultados.length; i++) {
+
+            tablasResultados[i].addMouseListener(new MouseListener() {
+
                 @Override
                 public void mouseClicked(MouseEvent e) {
-
-                    if (e.getClickCount() == 2){
-                        MainWindow.this.jTextArea1.removeAll();
+                    
+                    if (e.isShiftDown()){
                         
-                        switch(MainWindow.this.jTabbedPane2.getSelectedIndex()){
+                        String nombre;
+                        
+                        switch (MainWindow.this.jTabbedPane2.getSelectedIndex()) {
                             case 0:
-                                MainWindow.this.jTextArea1.setText((String) personajesModel.getValueAt
-                                    (MainWindow.this.jTable1.getSelectedRow(), 4));
+                                nombre = (String) personajesModel.getValueAt(MainWindow.this.jTable1.getSelectedRow(), 1);
+                                if (JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar a "+
+                                        nombre+"?",
+                                        "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                                    session.delete(findPersonajeByName(nombre));
+                                    session.beginTransaction().commit();
+                                }
+                                
                                 break;
                             case 1:
-                                MainWindow.this.jTextArea1.setText((String) familiaModel.getValueAt
-                                    (MainWindow.this.jTable2.getSelectedRow(), 1));
+                                nombre = (String) familiaModel.getValueAt(MainWindow.this.jTable2.getSelectedRow(), 0);
+                                if (JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar a "+
+                                        nombre+"?",
+                                        "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                                    session.delete(findFamiliaByName(nombre));
+                                    session.beginTransaction().commit();
+                                }
+                                
                                 break;
                             case 2:
-                                MainWindow.this.jTextArea1.setText((String) lugarModel.getValueAt
-                                    (MainWindow.this.jTable3.getSelectedRow(), 1));
+                                nombre = (String) lugarModel.getValueAt(MainWindow.this.jTable3.getSelectedRow(), 0);
+                                if (JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar "+
+                                        nombre+"?",
+                                        "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                                    session.delete(findLugarByName(nombre));
+                                    session.beginTransaction().commit();
+                                }
+                                
                                 break;
                             case 3:
-                                MainWindow.this.jTextArea1.setText((String) empleoModel.getValueAt
-                                    (MainWindow.this.jTable4.getSelectedRow(), 1));                                
+                                nombre = (String) empleoModel.getValueAt(MainWindow.this.jTable4.getSelectedRow(), 0);
+                                if (JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar "+
+                                        nombre+"?",
+                                        "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                                    session.delete(findEmpleoByName(nombre));
+                                    session.beginTransaction().commit();
+                                }
+                                
                                 break;
                         }
-                        
                     }
                     
+                    if (e.getClickCount() == 2) {
+                        MainWindow.this.jTextArea1.removeAll();
+                        
+                        switch (MainWindow.this.jTabbedPane2.getSelectedIndex()) {
+                            case 0:
+                                MainWindow.this.jTextArea1.setText((String) personajesModel.getValueAt(MainWindow.this.jTable1.getSelectedRow(), 4));
+                                break;
+                            case 1:
+                                MainWindow.this.jTextArea1.setText((String) familiaModel.getValueAt(MainWindow.this.jTable2.getSelectedRow(), 1));
+                                break;
+                            case 2:
+                                MainWindow.this.jTextArea1.setText((String) lugarModel.getValueAt(MainWindow.this.jTable3.getSelectedRow(), 1));
+                                break;
+                            case 3:
+                                MainWindow.this.jTextArea1.setText((String) empleoModel.getValueAt(MainWindow.this.jTable4.getSelectedRow(), 1));
+                                break;
+                        }
+
+                    }
+
                 }
 
                 @Override
-                public void mousePressed(MouseEvent e) {                   
+                public void mousePressed(MouseEvent e) {
                 }
 
                 @Override
@@ -749,92 +1006,156 @@ public class MainWindow extends javax.swing.JFrame {
                 @Override
                 public void mouseExited(MouseEvent e) {
                 }
-                
+
             });
-            
+
         }
-        
+
+    }
+
+    public int findFamiliaIdByName(String nombre) {
+        Iterator<?> iter = session.createQuery("from Familia where nombre like '%" + nombre + "%'").iterate();
+        while (iter.hasNext()) {
+            Familia auxFam = (Familia) iter.next();
+
+            return auxFam.getIdFamilia();
+        }
+
+        return -1;
+    }
+
+    public Lugar findLugarByName(String nombre) {
+        Iterator<?> iter = session.createQuery("from Lugar where nombre_lugar like '%" + nombre + "%'").iterate();
+        while (iter.hasNext()) {
+            Lugar auxLug = (Lugar) iter.next();
+
+            return auxLug;
+        }
+
+        return null;
+    }    
+    
+    public Empleo findEmpleoByName(String nombre) {
+        Iterator<?> iter = session.createQuery("from Empleo where nombre_empleo like '%" + nombre + "%'").iterate();
+        while (iter.hasNext()) {
+            Empleo auxEmp = (Empleo) iter.next();
+
+            return auxEmp;
+        }
+
+        return null;
+    }    
+    
+    public Personaje findPersonajeByName(String nombre) {
+        Iterator<?> iter = session.createQuery("from Personaje where nombre like '%" + nombre + "%'").iterate();
+        while (iter.hasNext()) {
+            Personaje auxPer = (Personaje) iter.next();
+
+            return auxPer;
+        }
+
+        return null;
     }
     
-   public int findFamiliaIdByName(String nombre){
-       Iterator<?> iter = session.createQuery("from Familia where nombre like '%"+nombre+"%'").iterate();
-       while (iter.hasNext()) {
-           Familia auxFam = (Familia) iter.next();
+    public Familia findFamiliaByName(String nombre) {
+        Iterator<?> iter = session.createQuery("from Familia where nombre like '%" + nombre + "%'").iterate();
+        while (iter.hasNext()) {
+            Familia auxFam = (Familia) iter.next();
 
-           return auxFam.getIdFamilia();
-       }
-       
-       return -1;
-   }
+            return auxFam;
+        }
 
-    public Familia findFamiliaByName(String nombre){
-       Iterator<?> iter = session.createQuery("from Familia where nombre like '%"+nombre+"%'").iterate();
-       while (iter.hasNext()) {
-           Familia auxFam = (Familia) iter.next();
+        return null;
+    }
 
-           return auxFam;
-       }
-       
-       return null;
-   }
-   
-   public void personajeInsert(){
+    public void lugarInsert() {
+        session.persist(new Lugar(this.jTextField10.getText(), this.jTextArea6.getText()));
+        session.beginTransaction().commit();
+        JOptionPane.showMessageDialog(null, "Lugar añadido exitosamente.",
+                "Lugar añadido", JOptionPane.INFORMATION_MESSAGE);
 
-       session.persist(new Personaje(findFamiliaByName(this.jComboBox5.getSelectedItem().toString()), this.jTextField5.getText()
-       , this.jTextField6.getText(), Integer.parseInt(this.jTextField7.getText()), this.jTextArea3.getText()));
-       session.beginTransaction().commit();
-       JOptionPane.showMessageDialog(null, "Personaje añadido exitosamente.",
-                  "Personaje añadido", JOptionPane.INFORMATION_MESSAGE);
-       
-       this.jComboBox5.setSelectedIndex(0);
-       this.jTextField5.setText("");
-       this.jTextField6.setText("");
-       this.jTextField7.setText("");
-       this.jTextArea3.setText("");
-       
-   }
-   
-    public void lugarQuery(){
-        
-         Iterator<?> iter = null;
-         
-         switch (this.jComboBox3.getSelectedIndex()){
-             case 0:
-                 
-                iter = session.createQuery("from Lugar").iterate();               
-                 
-                 break;
-             case 1:
-                 
-                iter = session.createQuery("from Lugar where nombre_lugar like '%"+this.jTextField3.getText()+"%'").iterate();                  
-                 
-                 break;
-         }
-        
+        this.jTextField10.setText("");
+        this.jTextArea6.setText("");
+
+    }
+
+    public void empleoInsert() {
+        session.persist(new Empleo(this.jTextField9.getText(), this.jTextArea5.getText()));
+        session.beginTransaction().commit();
+        JOptionPane.showMessageDialog(null, "Empleo añadido exitosamente.",
+                "Empleo añadido", JOptionPane.INFORMATION_MESSAGE);
+
+        this.jTextField9.setText("");
+        this.jTextArea5.setText("");
+
+    }
+
+    public void familiaInsert() {
+        session.persist(new Familia(this.jTextField8.getText(), this.jTextArea4.getText()));
+        session.beginTransaction().commit();
+        JOptionPane.showMessageDialog(null, "Familia añadida exitosamente.",
+                "Familia añadida", JOptionPane.INFORMATION_MESSAGE);
+
+        this.jTextField8.setText("");
+        this.jTextArea4.setText("");
+    }
+
+    public void personajeInsert() {
+
+        session.persist(new Personaje(findFamiliaByName(this.jComboBox5.getSelectedItem().toString()), this.jTextField5.getText(), this.jTextField6.getText(), Integer.parseInt(this.jTextField7.getText()), this.jTextArea3.getText()));
+        session.beginTransaction().commit();
+        JOptionPane.showMessageDialog(null, "Personaje añadido exitosamente.",
+                "Personaje añadido", JOptionPane.INFORMATION_MESSAGE);
+
+        this.jComboBox5.setSelectedIndex(0);
+        this.jTextField5.setText("");
+        this.jTextField6.setText("");
+        this.jTextField7.setText("");
+        this.jTextArea3.setText("");
+
+    }
+
+    public void lugarQuery() {
+
+        Iterator<?> iter = null;
+
+        switch (this.jComboBox3.getSelectedIndex()) {
+            case 0:
+
+                iter = session.createQuery("from Lugar").iterate();
+
+                break;
+            case 1:
+
+                iter = session.createQuery("from Lugar where nombre_lugar like '%" + this.jTextField3.getText() + "%'").iterate();
+
+                break;
+        }
+
         while (iter.hasNext()) {
             Lugar auxLug = (Lugar) iter.next();
 
             this.lugarModel.addRow(auxLug.getNombreLugar(), auxLug.getDescripcion());
-        }         
-         
-    }   
-   
-    public void empleoQuery(){
-        
-         Iterator<?> iter = null;
-         
-         switch (this.jComboBox4.getSelectedIndex()){
-             case 0:
-                 
-                iter = session.createQuery("from Empleo").iterate();              
-                 
-                 break;
-             case 1:
-                 
-                iter = session.createQuery("from Empleo where nombre_empleo like '%"+this.jTextField4.getText()+"%'").iterate();                   
-                 
+        }
+
+    }
+
+    public void empleoQuery() {
+
+        Iterator<?> iter = null;
+
+        switch (this.jComboBox4.getSelectedIndex()) {
+            case 0:
+
+                iter = session.createQuery("from Empleo").iterate();
+
                 break;
-         }
+            case 1:
+
+                iter = session.createQuery("from Empleo where nombre_empleo like '%" + this.jTextField4.getText() + "%'").iterate();
+
+                break;
+        }
 
         while (iter.hasNext()) {
             Empleo auxEmp = (Empleo) iter.next();
@@ -842,62 +1163,62 @@ public class MainWindow extends javax.swing.JFrame {
             this.empleoModel.addRow(auxEmp.getNombreEmpleo(), auxEmp.getDescripcion());
         }
 
-    }   
-   
-    public void familiaQuery(){
-        
-         Iterator<?> iter = null;
-         
-         switch (this.jComboBox2.getSelectedIndex()){
-             case 0:
-                 
-                iter = session.createQuery("from Familia").iterate();                
-                 
-                 break;
-             case 1:
-                 
-                iter = session.createQuery("from Familia where nombre like '%"+this.jTextField2.getText()+"%'").iterate();                  
-                 
+    }
+
+    public void familiaQuery() {
+
+        Iterator<?> iter = null;
+
+        switch (this.jComboBox2.getSelectedIndex()) {
+            case 0:
+
+                iter = session.createQuery("from Familia").iterate();
+
                 break;
-         }
+            case 1:
+
+                iter = session.createQuery("from Familia where nombre like '%" + this.jTextField2.getText() + "%'").iterate();
+
+                break;
+        }
 
         while (iter.hasNext()) {
             Familia auxFam = (Familia) iter.next();
 
             this.familiaModel.addRow(auxFam.getNombre(), auxFam.getDescripcion());
-        }         
-         
+        }
+
     }
-   
-    public void personajeQuery(){
-        
+
+    public void personajeQuery() {
+
         Iterator<?> iter = null;
-        
-        switch (this.jComboBox1.getSelectedIndex()){
+
+        switch (this.jComboBox1.getSelectedIndex()) {
             case 0:
-                
+
                 iter = session.createQuery("from Personaje").iterate();
-                
+
                 break;
             case 1:
 
-                iter = session.createQuery("from Personaje where id_familia = '"+findFamiliaIdByName(this.jTextField1.getText())+"'").iterate();
-                
+                iter = session.createQuery("from Personaje where id_familia = '" + findFamiliaIdByName(this.jTextField1.getText()) + "'").iterate();
+
                 break;
             case 2:
-                
-                iter = session.createQuery("from Personaje where nombre like '%"+this.jTextField1.getText()+"%'").iterate();
-                
+
+                iter = session.createQuery("from Personaje where nombre like '%" + this.jTextField1.getText() + "%'").iterate();
+
                 break;
             case 3:
-                
-                iter = session.createQuery("from Personaje where apellidos like '%"+this.jTextField1.getText()+"%'").iterate();                
-                
+
+                iter = session.createQuery("from Personaje where apellidos like '%" + this.jTextField1.getText() + "%'").iterate();
+
                 break;
             case 4:
-                
-                iter = session.createQuery("from Personaje where edad = '"+this.jTextField1.getText()+"'").iterate();
-                
+
+                iter = session.createQuery("from Personaje where edad = '" + this.jTextField1.getText() + "'").iterate();
+
                 break;
         }
 
@@ -906,39 +1227,39 @@ public class MainWindow extends javax.swing.JFrame {
 
             this.personajesModel.addRow(auxPers.getFamilia().getNombre(), auxPers.getNombre(), auxPers.getApellidos(), auxPers.getEdad(), auxPers.getDescripcion());
         }
-        
+
     }
-    
-    public void setInsertaComboBoxes(){
+
+    public void setInsertaComboBoxes() {
         Iterator<?> iter = null;
-        
+
         iter = session.createQuery("from Familia").iterate();
-        while (iter.hasNext()){
+        while (iter.hasNext()) {
             Familia auxFam = (Familia) iter.next();
             this.jComboBox5.addItem(auxFam.getNombre());
         }
-        
+
     }
-    
-    public void setConsultaComboBoxes(){
+
+    public void setConsultaComboBoxes() {
 
         this.jComboBox1.addItem("No filtrar");
         this.jComboBox1.addItem("Familia");
         this.jComboBox1.addItem("Nombre");
         this.jComboBox1.addItem("Apellidos");
         this.jComboBox1.addItem("Edad");
-        
+
         this.jComboBox2.addItem("No filtrar");
         this.jComboBox2.addItem("Nombre");
-        
+
         this.jComboBox3.addItem("No filtrar");
         this.jComboBox3.addItem("Nombre");
-        
+
         this.jComboBox4.addItem("No filtrar");
         this.jComboBox4.addItem("Nombre");
 
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -965,13 +1286,13 @@ public class MainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         try {
             UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -982,21 +1303,33 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1017,11 +1350,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
@@ -1031,12 +1367,18 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
